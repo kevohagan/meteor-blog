@@ -33,9 +33,11 @@ Template.blogAdminEdit.rendered = ->
     $label.text 'Body'
     $preview.hide()
 
+
   @editor.setValue @data.body
   @editor.focus()
   @editor.getSelection().clearSelection()
+
 
   # Logic for the keyboard preview shortcut: some browsers work on 'keyup', and
   # some on 'keydown', and some on both, but we don't want to toggle it twice so
@@ -98,6 +100,7 @@ Template.blogAdminEdit.events
       attrs.published = true
       attrs.publishedAt = new Date()
 
+
     post = @update attrs
 
     if post.errors
@@ -116,5 +119,6 @@ Template.blogAdminEdit.events
 
     if post.errors
       return alert(_(post.errors[0]).values()[0])
+
 
     flash 'Saved'

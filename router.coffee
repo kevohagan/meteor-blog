@@ -56,6 +56,7 @@ Router.map ->
       if Blog.settings.blogShowTemplate
         @template = Blog.settings.blogShowTemplate
 
+
         # If the user has a custom template, and not using the helper, then
         # maintain the package Javascript so that OpenGraph tags and share
         # buttons still work.
@@ -143,8 +144,10 @@ Router.map ->
         Post.first slug: @params.slug
 
     before: ->
+
       if Blog.settings.blogAdminEditTemplate
         @template = Blog.settings.blogAdminEditTemplate
+
 
       if Meteor.loggingIn()
         return @stop()

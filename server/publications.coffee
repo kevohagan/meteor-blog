@@ -1,4 +1,5 @@
 Meteor.publish 'singlePost', (slug) ->
+
   check slug, String
 
   Post.find slug: slug
