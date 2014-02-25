@@ -1,8 +1,5 @@
 Template.blogAdminNew.rendered = ->
-<<<<<<< HEAD
-=======
-  $('.post-form').parsley()
->>>>>>> new
+
   $('[name=title]').focus().val ''
 
   @editor = ace.edit 'editor'
@@ -20,7 +17,6 @@ Template.blogAdminNew.rendered = ->
     @editor.resize()
   , 250)
 
-<<<<<<< HEAD
   $label = $('.body-label')
   $switch = $('.make-switch')
   $editor = $('#editor')
@@ -62,17 +58,7 @@ Template.blogAdminNew.rendered = ->
       e.preventDefault()
       $switch.bootstrapSwitch 'toggleState'
       justtoggled = true
-=======
-  $('.make-switch').bootstrapSwitch().on 'switch-change', (e, data) =>
-    if data.value
-      $('#editor').hide()
-      val = marked @editor.getValue()
-      return $('#preview').html(val).show()
 
-    $('#editor').show()
-    @editor.focus()
-    $('#preview').hide()
->>>>>>> new
 
 flash = (status, post) ->
   setTimeout ->
@@ -87,12 +73,6 @@ Template.blogAdminNew.events
   'click .for-publishing': (e, tpl) ->
     e.preventDefault()
 
-<<<<<<< HEAD
-=======
-    if not $('.post-form').parsley 'validate'
-      return
-
->>>>>>> new
     post = Post.create
       title: $('[name=title]').val()
       body: tpl.editor.getValue()
@@ -102,23 +82,15 @@ Template.blogAdminNew.events
       publishedAt: new Date()
       userId: Meteor.userId()
 
-<<<<<<< HEAD
     if post.errors
       return alert(_(post.errors[0]).values()[0])
 
-=======
->>>>>>> new
+
     flash 'Publishing...', post
 
   'click .for-saving': (e, tpl) ->
     e.preventDefault()
 
-<<<<<<< HEAD
-=======
-    if not $('.post-form').parsley 'validate'
-      return
-
->>>>>>> new
     post = Post.create
       title: $('[name=title]').val()
       body: tpl.editor.getValue()
@@ -127,10 +99,7 @@ Template.blogAdminNew.events
       updatedAt: new Date()
       userId: Meteor.userId()
 
-<<<<<<< HEAD
     if post.errors
       return alert(_(post.errors[0]).values()[0])
 
-=======
->>>>>>> new
     flash 'Saving...', post

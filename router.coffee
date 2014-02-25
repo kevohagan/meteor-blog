@@ -144,10 +144,8 @@ Router.map ->
         Post.first slug: @params.slug
 
     before: ->
-
       if Blog.settings.blogAdminEditTemplate
         @template = Blog.settings.blogAdminEditTemplate
-
 
       if Meteor.loggingIn()
         return @stop()
